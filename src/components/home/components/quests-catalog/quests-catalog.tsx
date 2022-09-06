@@ -8,6 +8,7 @@ import { ReactComponent as IconPerson } from 'assets/img/icon-person.svg';
 import { ReactComponent as IconPuzzle } from 'assets/img/icon-puzzle.svg';
 import * as S from './quests-catalog.styled';
 import React from 'react';
+import { AppRoute } from 'const';
 
 const QuestsCatalog = () => (
   <>
@@ -57,7 +58,7 @@ const QuestsCatalog = () => (
 
     <S.QuestsList>
       <S.QuestItem>
-        <S.QuestItemLink to="/quest">
+        <S.QuestItemLink to={AppRoute.Quest}>
           <S.Quest>
             <S.QuestImage
               src="img/preview-sklep.jpg"
