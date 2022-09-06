@@ -94,7 +94,7 @@ const FeatureTitle = styled.span`
   font-size: ${({ theme }) => theme.font.semibase};
   line-height: 144%;
   font-weight: 400;
-  color: ${({ theme }) => theme.color.whisper2};
+  color: ${({ theme }) => theme.color.whisper};
 `;
 
 const QuestDescription = styled.p`
@@ -103,7 +103,7 @@ const QuestDescription = styled.p`
   padding: 0;
 
   line-height: 150%;
-  color: ${({ theme }) => theme.color.whisper2};
+  color: ${({ theme }) => theme.color.whisper};
   letter-spacing: 0.013em;
 `;
 

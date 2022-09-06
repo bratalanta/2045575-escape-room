@@ -72,7 +72,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Raleway', Arial, sans-serif;
     font-style: normal;
     font-weight: 500;
-    font-size: ${({ theme }) => theme.font.base};
+    font-size: ${(props) => props.theme.font.base};
     line-height: 22.5px;
     color: ${({ theme }) => theme.color.whisper};
     font-feature-settings: 'pnum' on, 'lnum' on;

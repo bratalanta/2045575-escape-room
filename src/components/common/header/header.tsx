@@ -11,7 +11,7 @@ const Header = () => (
       <S.Navigation>
         <S.Links>
           <S.LinkItem>
-            <S.Link $isActiveLink to="/">
+            <S.Link to="/">
               Квесты
             </S.Link>
           </S.LinkItem>

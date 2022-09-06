@@ -1,4 +1,5 @@
 import * as S from './booking-modal.styled';
+import React from 'react';
 import { ReactComponent as IconClose } from 'assets/img/icon-close.svg';
 
 const BookingModal = () => (
