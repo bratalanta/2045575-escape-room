@@ -2,10 +2,14 @@ import * as S from './booking-modal.styled';
 import React from 'react';
 import { ReactComponent as IconClose } from 'assets/img/icon-close.svg';
 
-const BookingModal = () => (
+type BookingModalProps = {
+  onModalCloseBtnClick: () => void;
+}
+
+const BookingModal = ({onModalCloseBtnClick}: BookingModalProps) => (
   <S.BlockLayer>
     <S.Modal>
-      <S.ModalCloseBtn>
+      <S.ModalCloseBtn onClick={onModalCloseBtnClick}>
         <IconClose width="16" height="16" />
         <S.ModalCloseLabel>Закрыть окно</S.ModalCloseLabel>
       </S.ModalCloseBtn>
