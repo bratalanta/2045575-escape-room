@@ -1,19 +1,5 @@
 import styled, { css } from 'styled-components';
 
-const Tabs = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-
-  margin: 0;
-  margin-bottom: 20px;
-  padding: 0;
-  list-style: none;
-
-  @media (max-width: 1110px) {
-    align-self: center;
-  }
-`;
-
 const TabItem = styled.li`
   display: flex;
   align-items: center;
@@ -35,7 +21,11 @@ const TabItem = styled.li`
   }
 `;
 
-const TabBtn = styled.button.attrs({ type: 'button' })`
+type TabBtnProps = {
+  isActive: boolean;
+}
+
+const TabBtn = styled.button.attrs({ type: 'button' })<TabBtnProps>`
   display: flex;
   align-items: center;
   padding: 0;
@@ -59,6 +49,15 @@ const TabBtn = styled.button.attrs({ type: 'button' })`
   &:hover span {
     border-bottom: 2px solid ${({ theme }) => theme.color.tangerine};
   }
+
+  ${({isActive}) =>
+    isActive &&
+    css`
+      span {
+        border-bottom: 2px solid
+      }
+    `
+  }
 `;
 
 const TabTitle = styled.span`
@@ -69,8 +68,7 @@ const TabTitle = styled.span`
 `;
 
 export {
-  Tabs,
   TabItem,
   TabBtn,
   TabTitle,
-};
+}

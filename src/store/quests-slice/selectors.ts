@@ -1,5 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { LoadingStatus, NameSpace } from 'const';
+import { FilterType, LoadingStatus, NameSpace, QuestType } from 'const';
+import { selectCurrentFilter } from 'store/app-slice/selectors';
 import { State } from 'types/state';
 
 const selectQuests = (state: State) => state[NameSpace.Quests].quests;
@@ -30,9 +31,25 @@ const questLoadingStatusSelector = createSelector(
     }
   ));
 
+const filteredQuestsSelector = createSelector(
+  [
+    selectQuests,
+    selectCurrentFilter
+  ],
+  (quests, currentFilter) => {
+    if (currentFilter === FilterType.All) {
+      return quests;
+    }
+
+    return quests.filter((quest) => QuestType[quest.type] === currentFilter.toLowerCase())
+  }
+)
+
+
 export {
   selectQuests,
   questsLoadingStatusSelector,
   questLoadingStatusSelector,
-  selectQuest
+  selectQuest,
+  filteredQuestsSelector
 }

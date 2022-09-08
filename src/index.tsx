@@ -11,11 +11,13 @@ import 'react-toastify/dist/ReactToastify.css';
 store.dispatch(fetchQuestsAction())
 
 render(
-  <StrictMode>
+  // <StrictMode>
+  <>
     <ToastContainer />
     <Provider store={store}>
       <App />
     </Provider>
-  </StrictMode>,
+  </>,
+  // </StrictMode>,
   document.getElementById('root'),
 );

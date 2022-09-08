@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Container, Link as RouterLink } from 'components/common/common';
 
 const StyledHeader = styled.header`
@@ -64,7 +64,11 @@ const LinkItem = styled.li`
   }
 `;
 
-const Link = styled(RouterLink)`
+type LinkProps = {
+  isActive?: boolean;
+}
+
+const Link = styled(RouterLink)<LinkProps>`
   display: block;
   max-width: 100px;
   font-size: ${({ theme }) => theme.font.semibase};
@@ -79,6 +83,12 @@ const Link = styled(RouterLink)`
   &:hover {
     color: ${({ theme }) => theme.color.tangerine};
   }
+
+  ${({isActive}) => (
+    isActive &&
+    css`
+      color: ${({ theme }) => theme.color.tangerine};
+    `)}
 `;
 
 const Phone = styled.a`
