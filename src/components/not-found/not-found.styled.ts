@@ -35,7 +35,7 @@ export const Link = styled(RouterLink)`
   text-transform: uppercase;
   text-decoration: underline;
 
-  color: ${({ theme }) => theme.color.whiteSmoke};
+  color: ${({ theme }) => theme.color.pinkSwan};
 
   &:focus,
   &:hover {

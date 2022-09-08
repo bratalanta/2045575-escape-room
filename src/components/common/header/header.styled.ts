@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { Container, Link as RouterLink } from 'components/common/common';
 
 const StyledHeader = styled.header`

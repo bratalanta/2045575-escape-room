@@ -5,6 +5,9 @@ import { State } from 'types/state';
 const selectQuests = (state: State) => state[NameSpace.Quests].quests;
 const selectQuestsLoadingStatus = (state: State) => state[NameSpace.Quests].questsLoadingStatus;
 
+const selectQuest = (state: State) => state[NameSpace.Quests].quest;
+const selectQuestLoadingStatus = (state: State) => state[NameSpace.Quests].questLoadingStatus;
+
 const questsLoadingStatusSelector = createSelector(
   [
     selectQuestsLoadingStatus,
@@ -16,7 +19,20 @@ const questsLoadingStatusSelector = createSelector(
     }
   ));
 
+const questLoadingStatusSelector = createSelector(
+  [
+    selectQuestLoadingStatus,
+  ],
+  (status) => (
+    {
+      isQuestStatusPending: [LoadingStatus.Pending, LoadingStatus.Idle].includes(status),
+      isQuestStatusRejected: status === LoadingStatus.Rejected,
+    }
+  ));
+
 export {
   selectQuests,
-  questsLoadingStatusSelector
+  questsLoadingStatusSelector,
+  questLoadingStatusSelector,
+  selectQuest
 }

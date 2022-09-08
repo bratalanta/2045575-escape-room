@@ -29,6 +29,7 @@ const QuestType: TQuestType = {
 enum NameSpace {
   Quests = 'quests',
   App = 'app',
+  Orders = 'orders'
 }
 
 enum LoadingStatus {

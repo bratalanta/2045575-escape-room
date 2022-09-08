@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { MainLayout } from 'components/common/common';
 import { ReactComponent as IconClock } from 'assets/img/icon-clock.svg';
 import { ReactComponent as IconPerson } from 'assets/img/icon-person.svg';
@@ -6,10 +6,38 @@ import { ReactComponent as IconPuzzle } from 'assets/img/icon-puzzle.svg';
 import * as S from './detailed-quest.styled';
 import { BookingModal } from './components/components';
 import React from 'react';
-import { quests } from 'mocks/quests';
 import { QuestLevel, QuestType } from 'const';
+import { useAppDispatch, useAppSelector } from 'hooks';
+import { fetchQuestAction } from 'store/api-actions';
+import { useParams } from 'react-router-dom';
+import { questLoadingStatusSelector, selectQuest } from 'store/quests-slice/selectors';
+import MainLoader from 'components/main-loader/main-loader';
+import ErrorMessage from 'components/error-message/error-message';
 
 const DetailedQuest = () => {
+  const dispatch = useAppDispatch();
+  const {id} = useParams<{id: string}>();
+
+  useEffect(() => {
+    dispatch(fetchQuestAction(Number(id)));
+  }, [id]);
+
+  const {isQuestStatusPending, isQuestStatusRejected} = useAppSelector(questLoadingStatusSelector);
+  const quest = useAppSelector(selectQuest);
+  const [isBookingModalOpened, setIsBookingModalOpened] = useState(false);
+
+  if (isQuestStatusPending) {
+    return (
+      <MainLoader />
+    )
+  }
+
+  if (isQuestStatusRejected) {
+    return (
+      <ErrorMessage />
+    )
+  }
+
   const {
     coverImg,
     title,
@@ -18,11 +46,9 @@ const DetailedQuest = () => {
     peopleCount,
     level,
     description
-  } = quests[0];
+  } = quest;
   const [minPeopleCount, maxPeopleCount] = peopleCount;
-
-  const [isBookingModalOpened, setIsBookingModalOpened] = useState(false);
-
+  console.log(coverImg)
   const onModalCloseBtnClick = () => setIsBookingModalOpened(false);
 
   return (
@@ -68,7 +94,13 @@ const DetailedQuest = () => {
           </S.PageDescription>
         </S.PageContentWrapper>
 
-        {isBookingModalOpened && <BookingModal onModalCloseBtnClick={onModalCloseBtnClick} />}
+        {
+        isBookingModalOpened &&
+        <BookingModal
+          onModalCloseBtnClick={onModalCloseBtnClick}
+          peopleCount={peopleCount}
+        />
+        }
       </S.Main>
     </MainLayout>
   );

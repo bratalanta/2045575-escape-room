@@ -127,6 +127,7 @@ const BookingInput = styled.input`
 `;
 
 const BookingSubmit = styled(Button)`
+  min-width: 218px;
   align-self: center;
   margin-top: 55px;
   margin-bottom: 21px;
@@ -139,6 +140,7 @@ const BookingSubmit = styled(Button)`
   line-height: 16px;
   letter-spacing: 0.03em;
   background-color: ${({ theme }) => theme.color.pinkSwan};
+  text-align: center;
 
   &:focus,
   &:hover {
