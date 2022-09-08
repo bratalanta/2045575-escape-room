@@ -1,9 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { AxiosInstance } from 'axios';
+import axios, { AxiosInstance } from 'axios';
 import { APIRoute } from 'const';
 import { Order } from 'types/order';
 import { Quest } from 'types/quest';
 import { AppDispatch, State } from 'types/state';
+import { toast } from 'react-toastify';
 
 const fetchQuestsAction = createAsyncThunk<Quest[], undefined, {
   dispatch: AppDispatch,
@@ -31,15 +32,25 @@ const fetchQuestAction = createAsyncThunk<Quest, number, {
   }
 )
 
-const postOrderAction = createAsyncThunk<undefined, Order, {
+const postOrderAction = createAsyncThunk<void, Order, {
   dispatch: AppDispatch,
   state: State,
   extra: AxiosInstance
 }>(
   'orders/postOrder',
-  async (order, {extra: api}) => (
-    await api.post(APIRoute.Orders, order)
-  )
+  async (order, {extra: api}) => {
+    console.log(order)
+    try {
+      await api.post(APIRoute.Orders, order)
+    } catch(err) {
+      if (axios.isAxiosError(err) && err.response) {
+        // toast.warn(err.);
+      }
+
+      throw err;
+    }
+
+  }
 )
 
 export {

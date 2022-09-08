@@ -38,11 +38,14 @@ enum LoadingStatus {
   Rejected = 'rejected'
 }
 
+const REQUIRED_PHONE_LENGTH = 10;
+
 export {
   NameSpace,
   AppRoute,
   QuestLevel,
   QuestType,
   APIRoute,
-  LoadingStatus
+  LoadingStatus,
+  REQUIRED_PHONE_LENGTH
 }

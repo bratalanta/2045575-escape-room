@@ -2,6 +2,17 @@ import styled from 'styled-components';
 import { Button } from 'components/common/common';
 import IconTick from 'assets/img/icon-tick.svg';
 
+const InputErrorMessage = styled.small`
+  position: relative;
+  top: 90px;
+
+`;
+
+const InputErrorContainer = styled.span`
+  position: absolute;
+  color: ${({ theme }) => theme.color.carrotOrange};
+`;
+
 const BlockLayer = styled.div`
   z-index: 10;
   position: fixed;
@@ -226,4 +237,6 @@ export {
   BookingCheckboxInput,
   BookingCheckboxText,
   BookingLegalLink,
+  InputErrorMessage,
+  InputErrorContainer
 };
