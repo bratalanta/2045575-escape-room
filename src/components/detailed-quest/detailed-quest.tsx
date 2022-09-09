@@ -48,9 +48,9 @@ const DetailedQuest = () => {
     description
   } = quest;
   const [minPeopleCount, maxPeopleCount] = peopleCount;
-  console.log(coverImg)
-  const onModalCloseBtnClick = () => setIsBookingModalOpened(false);
 
+  const onModalCloseBtnClick = () => setIsBookingModalOpened(false);
+  console.log(coverImg);
   return (
     <MainLayout>
       <S.Main>

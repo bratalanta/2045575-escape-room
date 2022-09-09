@@ -1,5 +1,5 @@
 import * as S from './booking-modal.styled';
-import React, { FormEvent } from 'react';
+import React from 'react';
 import { ReactComponent as IconClose } from 'assets/img/icon-close.svg';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { postOrderAction } from 'store/api-actions';
@@ -25,7 +25,6 @@ const BookingModal = ({onModalCloseBtnClick, peopleCount}: BookingModalProps) =>
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors }
   } = useForm<Order>({
     mode: 'all'
