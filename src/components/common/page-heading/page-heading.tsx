@@ -1,5 +1,5 @@
 import * as S from './page-heading.styled';
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 
 type PageHeadingProps = {
   children: ReactNode;

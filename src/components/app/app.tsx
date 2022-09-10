@@ -1,7 +1,5 @@
 import { ThemeProvider } from 'styled-components';
-import {
-  Route,
-} from 'components/common/common';
+import { Route } from 'components/common/common';
 import DetailedQuest from 'components/detailed-quest/detailed-quest';
 import Contacts from 'components/contacts/contacts';
 import Home from 'components/home/home';

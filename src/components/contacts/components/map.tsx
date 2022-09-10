@@ -5,7 +5,7 @@ import Diamond from 'assets/img/icon-blip.svg';
 
 const POSITION: LatLngTuple = [59.968306, 30.317916]
 
-const ICON = new Icon({
+const MarkerIcon = new Icon({
   iconUrl: Diamond,
   iconAnchor: [28, 70]
 });
@@ -18,15 +18,15 @@ enum TileLayerProps {
 const Map = () => {
   return (
     <MapContainer
-    center={POSITION}
-    style={{ width: '649px' }}
-    zoom={16}
+      center={POSITION}
+      style={{ width: '649px' }}
+      zoom={16}
     >
       <TileLayer
         attribution={TileLayerProps.Attribution}
         url={TileLayerProps.Url}
       />
-      <Marker position={POSITION} icon={ICON}>
+      <Marker position={POSITION} icon={MarkerIcon}>
         <Popup>
           Мы здесь!
         </Popup>

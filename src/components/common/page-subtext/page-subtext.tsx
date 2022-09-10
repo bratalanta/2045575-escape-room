@@ -1,5 +1,5 @@
 import * as S from './page-subtext.styled';
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 
 type PageSubtextProps = {
   children: ReactNode;

@@ -1,5 +1,4 @@
 import * as S from './not-found.styled';
-import React from 'react';
 import { AppRoute } from 'const';
 
 const NotFound = () => (

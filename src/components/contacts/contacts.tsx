@@ -1,9 +1,7 @@
 import { MainLayout, PageTitle, PageSubtext } from 'components/common/common';
-// import contactsMap from 'assets/img/icon-adventures.jpg';
 import * as S from './contacts.styled';
-import React from 'react';
 import Map from './components/map';
-const contactsMap = require('assets/img/contacts-map.jpg');
+import contactsMap from 'assets/img/contacts-map.jpg';
 
 const Contacts = () => (
   <MainLayout>

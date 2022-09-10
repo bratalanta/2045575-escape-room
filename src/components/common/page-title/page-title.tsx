@@ -1,5 +1,5 @@
 import * as S from './page-title.styled';
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 
 type PageTitleProps = {
   children: ReactNode;
