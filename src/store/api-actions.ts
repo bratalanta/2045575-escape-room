@@ -6,7 +6,6 @@ import { Quest } from 'types/quest';
 import { AppDispatch, State } from 'types/state';
 import { toast } from 'react-toastify';
 import { StatusCodes } from 'http-status-codes';
-import { useNavigate } from 'react-router-dom';
 import browserHistory from 'browser-history';
 
 const fetchQuestsAction = createAsyncThunk<Quest[], undefined, {
