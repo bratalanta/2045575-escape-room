@@ -7,7 +7,7 @@ const Tabs = () => {
   return (
     <S.Tabs>
       {Object.values(FilterType).map((filterType) => (
-        <TabItem filterType={filterType}/>
+        <TabItem key={filterType} filterType={filterType}/>
       ))}
     </S.Tabs>
   )

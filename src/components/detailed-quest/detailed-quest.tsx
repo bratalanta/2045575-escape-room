@@ -5,7 +5,6 @@ import { ReactComponent as IconPerson } from 'assets/img/icon-person.svg';
 import { ReactComponent as IconPuzzle } from 'assets/img/icon-puzzle.svg';
 import * as S from './detailed-quest.styled';
 import { BookingModal } from './components/components';
-import React from 'react';
 import { QuestLevel, QuestType } from 'const';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { fetchQuestAction } from 'store/api-actions';
@@ -22,17 +21,17 @@ const DetailedQuest = () => {
     dispatch(fetchQuestAction(Number(id)));
   }, [id]);
 
-  const {isQuestStatusPending, isQuestStatusRejected} = useAppSelector(questLoadingStatusSelector);
+  const {isQuestLoadingStatusPending, isQuestLoadingStatusRejected} = useAppSelector(questLoadingStatusSelector);
   const quest = useAppSelector(selectQuest);
   const [isBookingModalOpened, setIsBookingModalOpened] = useState(false);
 
-  if (isQuestStatusPending) {
+  if (isQuestLoadingStatusPending) {
     return (
       <MainLoader />
     )
   }
 
-  if (isQuestStatusRejected) {
+  if (isQuestLoadingStatusRejected) {
     return (
       <ErrorMessage />
     )
@@ -50,12 +49,12 @@ const DetailedQuest = () => {
   const [minPeopleCount, maxPeopleCount] = peopleCount;
 
   const onModalCloseBtnClick = () => setIsBookingModalOpened(false);
-  console.log(coverImg);
+
   return (
     <MainLayout>
       <S.Main>
         <S.PageImage
-          src={coverImg}
+          src={`/${coverImg}`}
           alt={`Квест ${title}`}
           width="1366"
           height="768"

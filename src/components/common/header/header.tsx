@@ -9,7 +9,7 @@ import * as S from './header.styled';
 const Header = () => {
   const dispatch = useAppDispatch();
   const activeHeaderLink = useAppSelector(selectActiveHeaderLink);
-  console.log(activeHeaderLink);
+
   return (
   <S.StyledHeader>
     <S.HeaderWrapper>
@@ -21,7 +21,7 @@ const Header = () => {
         <S.Links>
           <S.LinkItem>
             <S.Link
-              isActive={activeHeaderLink === HeaderLink.Quests}
+              $isActive={activeHeaderLink === HeaderLink.Quests}
               to={AppRoute.Home}
               onClick={() => dispatch(changeActiveLink(HeaderLink.Quests))}
             >
@@ -43,7 +43,7 @@ const Header = () => {
 
           <S.LinkItem>
             <S.Link
-              isActive={activeHeaderLink === HeaderLink.Contacts}
+              $isActive={activeHeaderLink === HeaderLink.Contacts}
               to={AppRoute.Contacts}
               onClick={() => dispatch(changeActiveLink(HeaderLink.Contacts))}
             >

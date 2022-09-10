@@ -1,4 +1,3 @@
-import React from 'react';
 import QuestsList from '../quests-list/quests-list';
 import Tabs from '../tabs/tabs';
 

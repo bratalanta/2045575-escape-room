@@ -15,8 +15,8 @@ const questsLoadingStatusSelector = createSelector(
   ],
   (status) => (
     {
-      isQuestsStatusPending: [LoadingStatus.Pending, LoadingStatus.Idle].includes(status),
-      isQuestsStatusRejected: status === LoadingStatus.Rejected,
+      isQuestsLoadingStatusPending: [LoadingStatus.Pending, LoadingStatus.Idle].includes(status),
+      isQuestsLoadingStatusRejected: status === LoadingStatus.Rejected,
     }
   ));
 
@@ -26,8 +26,8 @@ const questLoadingStatusSelector = createSelector(
   ],
   (status) => (
     {
-      isQuestStatusPending: [LoadingStatus.Pending, LoadingStatus.Idle].includes(status),
-      isQuestStatusRejected: status === LoadingStatus.Rejected,
+      isQuestLoadingStatusPending: [LoadingStatus.Pending, LoadingStatus.Idle].includes(status),
+      isQuestLoadingStatusRejected: status === LoadingStatus.Rejected,
     }
   ));
 

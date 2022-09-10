@@ -13,7 +13,11 @@ const initialState: InitialState = {
 export const ordersSlice = createSlice({
   name: NameSpace.Orders,
   initialState,
-  reducers: {},
+  reducers: {
+    resetOrderLoadingStatus: (state) => {
+      state.orderLoadingStatus = LoadingStatus.Idle
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(postOrderAction.pending, (state) => {
@@ -27,3 +31,5 @@ export const ordersSlice = createSlice({
       });
   }
 });
+
+export const {resetOrderLoadingStatus} = ordersSlice.actions;

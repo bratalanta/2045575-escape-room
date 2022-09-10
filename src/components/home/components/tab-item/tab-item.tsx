@@ -16,7 +16,7 @@ const TabItem = ({filterType}: TabItemProps) => {
   return (
     <S.TabItem>
       <S.TabBtn
-        isActive={filterType === currentFilter}
+        $isActive={filterType === currentFilter}
         onClick={() => dispatch(changeCurrentFilter(filterType))}
       >
         <QuestIcon filterType={filterType} />

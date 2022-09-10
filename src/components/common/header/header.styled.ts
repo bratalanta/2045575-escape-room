@@ -65,7 +65,7 @@ const LinkItem = styled.li`
 `;
 
 type LinkProps = {
-  isActive?: boolean;
+  $isActive?: boolean;
 }
 
 const Link = styled(RouterLink)<LinkProps>`
@@ -84,8 +84,8 @@ const Link = styled(RouterLink)<LinkProps>`
     color: ${({ theme }) => theme.color.tangerine};
   }
 
-  ${({isActive}) => (
-    isActive &&
+  ${({$isActive}) => (
+    $isActive &&
     css`
       color: ${({ theme }) => theme.color.tangerine};
     `)}

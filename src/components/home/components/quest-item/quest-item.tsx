@@ -21,7 +21,7 @@ const QuestItem = ({quest}: QuestItemProps) => {
 
   return (
     <S.QuestItem>
-    <S.QuestItemLink to={generatePath(AppRoute.Quest, {id})}>
+    <S.QuestItemLink to={generatePath(AppRoute.Quest, {id: `${id}`})}>
       <S.Quest>
         <S.QuestImage
           src={previewImg}

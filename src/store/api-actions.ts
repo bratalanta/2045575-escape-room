@@ -1,10 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios, { AxiosInstance } from 'axios';
-import { APIRoute } from 'const';
+import { APIRoute, AppRoute } from 'const';
 import { Order } from 'types/order';
 import { Quest } from 'types/quest';
 import { AppDispatch, State } from 'types/state';
 import { toast } from 'react-toastify';
+import { StatusCodes } from 'http-status-codes';
+import { useNavigate } from 'react-router-dom';
+import browserHistory from 'browser-history';
 
 const fetchQuestsAction = createAsyncThunk<Quest[], undefined, {
   dispatch: AppDispatch,
@@ -26,9 +29,21 @@ const fetchQuestAction = createAsyncThunk<Quest, number, {
 }>(
   'quests/fetchQuest',
   async (id, {extra: api}) => {
-    const {data} = await api.get<Quest>(`${APIRoute.Quests}/${id}`);
+    try {
+      const {data} = await api.get<Quest>(`${APIRoute.Quests}/${id}`);
 
-    return data;
+      return data;
+    } catch(err) {
+      if (axios.isAxiosError(err) && err.response) {
+        if (err.response.status === StatusCodes.NOT_FOUND) {
+          browserHistory.push({
+            pathname: `/${AppRoute.NotFound}`
+          })
+        }
+      }
+
+      throw err;
+    }
   }
 )
 
@@ -39,12 +54,13 @@ const postOrderAction = createAsyncThunk<void, Order, {
 }>(
   'orders/postOrder',
   async (order, {extra: api}) => {
-    console.log(order)
     try {
       await api.post(APIRoute.Orders, order)
+
+      toast.success('Данные отправлены!')
     } catch(err) {
       if (axios.isAxiosError(err) && err.response) {
-        // toast.warn(err.);
+        toast.warn('Не удалось отправить данные. Попробуйте позже');
       }
 
       throw err;

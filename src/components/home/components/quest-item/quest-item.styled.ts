@@ -1,5 +1,5 @@
 import { Link } from 'components/common/common';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 
 const QuestItem = styled.li``;

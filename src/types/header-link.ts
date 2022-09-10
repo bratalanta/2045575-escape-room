@@ -1,4 +1,4 @@
 export enum HeaderLink {
-  Quests = 'quests',
-  Contacts = 'contacts'
+  Quests = '/',
+  Contacts = '/contacts'
 }

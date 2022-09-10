@@ -11,7 +11,6 @@ const orderLoadingStatusSelector = createSelector(
   (status) => (
     {
       isOrderStatusPending: status === LoadingStatus.Pending,
-      isOrderStatusRejected: status === LoadingStatus.Rejected,
       isOrderStatusFulfilled: status === LoadingStatus.Fulfilled
     }
   ));

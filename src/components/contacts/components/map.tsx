@@ -28,7 +28,7 @@ const Map = () => {
       />
       <Marker position={POSITION} icon={ICON}>
         <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
+          Мы здесь!
         </Popup>
       </Marker>
   </MapContainer>
